@@ -95,17 +95,17 @@ export default function Home({ data }) {
                 key={id}
                 className={styles.card}
                 whileHover={{
-                  scale: [1, 1.09, 1.06],
+                  scale: [1, 1.11, 1.08],
                   position: "relative",
-                  rotate: [0, 7, -7, 1],
+                  rotate: [0, 7, -7, 2],
                   transition: {
-                    duration: 0.2,
+                    duration: 0.3,
                   },
                   filter:[
                     'hue-rotate(0) contrast(100%)',
                     'hue-rotate(360deg) contrast(200%)',
-                    'hue-rotate(45deg) contrast(300%)',
-                    'hue-rotate(0) contrast(100%)',
+                    'hue-rotate(-45deg) contrast(300%)',
+                    'hue-rotate(0deg) contrast(100%)',
                   ],  
                   boxShadow: "0px 3px 0px 3px rgba(151, 206, 76, 1)",
                 }}
