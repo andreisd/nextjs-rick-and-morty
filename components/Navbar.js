@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 
 export default function Navbar() {
-  
+
   const router = useRouter();
 
   return (
@@ -19,9 +19,6 @@ export default function Navbar() {
         visible: {
           scale: 1,
           opacity: 1,
-          transition: {
-            delay: 0.4,
-          },
         },
       }}
       className={styles.menu}

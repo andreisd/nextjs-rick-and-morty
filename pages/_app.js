@@ -11,17 +11,46 @@ export default function MyApp({ Component, pageProps, router }) {
         exit="pageExit"
         variants={{
           pageInitial: {
+            y: "20%",
             opacity: 0,
-            scale: 0.85,
+            scale: 0.95,
+            transition: {
+              type: "tween",
+            },
+            filter: [
+              "hue-rotate(0) contrast(100%)",
+              "hue-rotate(16deg) contrast(100%)",
+              "hue-rotate(-16deg) contrast(200%)",
+              "hue-rotate(0deg) contrast(100%)",
+            ],
           },
           pageAnimate: {
+            y: "0%",
             opacity: 1,
             scale: 1,
+            transition: {
+              type: "tween",
+            },
+            filter: [
+              "hue-rotate(0) contrast(100%)",
+              "hue-rotate(16deg) contrast(100%)",
+              "hue-rotate(-16deg) contrast(200%)",
+              "hue-rotate(0deg) contrast(100%)",
+            ],
           },
           pageExit: {
-            filter: "invert()",
+            y: "20%",
             opacity: 0,
-            scale: 0.85,
+            scale: 0.95,
+            transition: {
+              type: "tween",
+            },
+            filter: [
+              "hue-rotate(0) contrast(100%)",
+              "hue-rotate(16deg) contrast(100%)",
+              "hue-rotate(-16deg) contrast(200%)",
+              "hue-rotate(0deg) contrast(100%)",
+            ],
           },
         }}
       >

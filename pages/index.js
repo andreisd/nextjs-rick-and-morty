@@ -19,9 +19,6 @@ export default function Home() {
           visible: {
             scale: 1,
             opacity: 1,
-            transition: {
-              delay: 0.4,
-            },
           },
         }}
         className={styles.hero}
