@@ -1,4 +1,4 @@
-import Navbar from "./navbar";
+import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Head from "next/head";
 import styles from "../components/Layout.module.scss";
