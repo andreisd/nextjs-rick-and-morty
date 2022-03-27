@@ -1,4 +1,4 @@
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 import "../styles/globals.scss";
 import { motion, AnimatePresence } from "framer-motion";
 export default function MyApp({ Component, pageProps, router }) {
