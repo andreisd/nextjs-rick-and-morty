@@ -1,10 +1,25 @@
 .menu {
+    padding-top: 5rem;
+    padding-bottom: 2.5rem;
     ul {
         margin: 0;
         padding: 0;
         list-style: none;
+        display: flex;
+        justify-content: center;
         li {
-            display: inline-block;
+            margin: 0 2rem;
+            a {
+                font-size: 20px;
+                font-weight: bold;
+                background-color: #97ce4c;
+                padding: 10px 20px;
+                color: white;
+                &:hover {
+                    background-color: #E762D7;
+                    color:white;
+                }
+            }
         }
     }
 }

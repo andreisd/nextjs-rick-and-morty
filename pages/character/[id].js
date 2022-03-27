@@ -1,6 +1,6 @@
-import Head from "next/head";
 import Link from "next/link";
 import styles from "../character/Character.module.scss";
+import Head from "next/head";
 
 const defaultEndpoint = "https://rickandmortyapi.com/api/character";
 
@@ -56,7 +56,7 @@ export default function Character({ data }) {
         </ul>
 
         <p className="back">
-            <Link href="/">Back to all characters</Link>
+          <Link href="/">Back to all characters</Link>
         </p>
       </main>
 
