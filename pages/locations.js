@@ -20,7 +20,6 @@ export async function getServerSideProps() {
 }
 
 export default function Locations({ data }) {
-
   const { info, results: defaultResults = [] } = data;
   const [results, updateResults] = useState(defaultResults);
   const [page, updatePage] = useState({
@@ -31,7 +30,7 @@ export default function Locations({ data }) {
   const { current } = page;
 
   useEffect(() => {
-    if (current === defaultEndpoint) return ;
+    if (current === defaultEndpoint) return;
 
     async function request() {
       const res = await fetch(current);
@@ -48,7 +47,6 @@ export default function Locations({ data }) {
       updateResults((prev) => {
         return [...prev, ...nextData.results];
       });
-      
     }
 
     request();
@@ -91,7 +89,7 @@ export default function Locations({ data }) {
 
         <ul className={styles.grid}>
           {results.map((result) => {
-            const { id, name, type, dimension} = result;
+            const { id, name, type, dimension } = result;
             return (
               <motion.li
                 key={id}
@@ -103,12 +101,12 @@ export default function Locations({ data }) {
                   transition: {
                     duration: 0.3,
                   },
-                  filter:[
-                    'hue-rotate(0) contrast(100%)',
-                    'hue-rotate(360deg) contrast(200%)',
-                    'hue-rotate(-45deg) contrast(300%)',
-                    'hue-rotate(0deg) contrast(100%)',
-                  ],  
+                  filter: [
+                    "hue-rotate(0) contrast(100%)",
+                    "hue-rotate(360deg) contrast(200%)",
+                    "hue-rotate(-45deg) contrast(300%)",
+                    "hue-rotate(0deg) contrast(100%)",
+                  ],
                   boxShadow: "0px 3px 0px 3px rgba(151, 206, 76, 1)",
                 }}
               >
