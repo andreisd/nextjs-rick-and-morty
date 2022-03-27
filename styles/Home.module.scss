@@ -49,6 +49,37 @@
     }
   }
 }
+.episode {
+  flex: 0 0 calc(25% - 40px);
+  max-width: calc(100% - 40px);
+  width: calc(100% - 40px);
+  border: 10px solid white;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 40px;
+  padding: 0px;
+  background-color: white;
+  -webkit-box-shadow: 0px 3px 0px 3px rgba(231, 98, 215, 1);
+  -moz-box-shadow: 0px 3px 0px 3px rgba(231, 98, 215, 1);
+  box-shadow: 0px 3px 0px 3px rgba(231, 98, 215, 1);
+  a {
+    display: block;
+    width: 100%;
+    color: #e762d7;
+  }
+  h3 {
+    margin: 0;
+  }
+  p {
+    margin: 0;
+    color: black;
+  }
+  &:hover {
+    a {
+      color: #97ce4c;
+    }
+  }
+}
 
 .search {
   margin-bottom: 50px;

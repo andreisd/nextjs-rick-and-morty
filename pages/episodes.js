@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.scss";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const defaultEndpoint = "https://rickandmortyapi.com/api/character";
+const defaultEndpoint = "https://rickandmortyapi.com/api/episode";
 
 export async function getServerSideProps() {
   try {
@@ -19,7 +19,8 @@ export async function getServerSideProps() {
   }
 }
 
-export default function Characters({ data }) {
+export default function Episodes({ data }) {
+
   const { info, results: defaultResults = [] } = data;
   const [results, updateResults] = useState(defaultResults);
   const [page, updatePage] = useState({
@@ -30,7 +31,7 @@ export default function Characters({ data }) {
   const { current } = page;
 
   useEffect(() => {
-    if (current === defaultEndpoint) return;
+    if (current === defaultEndpoint) return ;
 
     async function request() {
       const res = await fetch(current);
@@ -47,6 +48,7 @@ export default function Characters({ data }) {
       updateResults((prev) => {
         return [...prev, ...nextData.results];
       });
+      
     }
 
     request();
@@ -68,7 +70,7 @@ export default function Characters({ data }) {
     const fields = Array.from(currentTarget?.elements);
     const fieldQuery = fields.find((field) => field.name === "query");
     const value = fieldQuery.value || "";
-    const endpoint = `https://rickandmortyapi.com/api/character/?name=${value}`;
+    const endpoint = `https://rickandmortyapi.com/api/episode/?name=${value}`;
 
     updatePage({
       current: endpoint,
@@ -79,8 +81,8 @@ export default function Characters({ data }) {
     <div className={styles.container}>
       <main className={styles.main}>
         <div className={styles.hero}>
-          <h1>Characters </h1>
-          <p>Search for a character</p>
+          <h1>Episodes </h1>
+          <p>List of all episodes</p>
           <form className={styles.search} onSubmit={handleOnSubmitSearch}>
             <input name="query" type="search" />
             <button>Search</button>
@@ -89,13 +91,13 @@ export default function Characters({ data }) {
 
         <ul className={styles.grid}>
           {results.map((result) => {
-            const { id, name, image } = result;
+            const { id, name, air_date, episode } = result;
             return (
               <motion.li
                 key={id}
-                className={styles.card}
+                className={styles.episode}
                 whileHover={{
-                  scale: [1, 1.11, 1.08],
+                  scale: [1, 1.08, 1.05],
                   position: "relative",
                   rotate: [0, 7, -7, 2],
                   transition: {
@@ -110,10 +112,11 @@ export default function Characters({ data }) {
                   boxShadow: "0px 3px 0px 3px rgba(151, 206, 76, 1)",
                 }}
               >
-                <Link href="/character/[id]" as={`/character/${id}`}>
+                <Link href="/episode/[id]" as={`/episode/${id}`}>
                   <a>
-                    <img src={image} alt={`${name}`} />
                     <h3>{name}</h3>
+                    <p>{episode}</p>
+                    <p>{air_date}</p>
                   </a>
                 </Link>
               </motion.li>
