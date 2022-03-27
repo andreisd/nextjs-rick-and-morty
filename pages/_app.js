@@ -12,13 +12,16 @@ export default function MyApp({ Component, pageProps, router }) {
         variants={{
           pageInitial: {
             opacity: 0,
+            scale: 0,
           },
           pageAnimate: {
             opacity: 1,
+            scale: 1,
           },
           pageExit: {
             filter: 'invert()',
             opacity: 0,
+            scale: 0,
           },  
         }}
       >
