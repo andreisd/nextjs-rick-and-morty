@@ -11,11 +11,12 @@ export default function MyApp({ Component, pageProps, router }) {
         exit="pageExit"
         variants={{
           pageInitial: {
-            y: "20%",
+            y: "-20%",
             opacity: 0,
             scale: 0.95,
             transition: {
               type: "tween",
+              duration: 0.25,
             },
             filter: [
               "hue-rotate(0) contrast(100%)",
@@ -30,6 +31,7 @@ export default function MyApp({ Component, pageProps, router }) {
             scale: 1,
             transition: {
               type: "tween",
+              duration: 0.25,
             },
             filter: [
               "hue-rotate(0) contrast(100%)",
@@ -44,6 +46,7 @@ export default function MyApp({ Component, pageProps, router }) {
             scale: 0.95,
             transition: {
               type: "tween",
+              duration: 0.25,
             },
             filter: [
               "hue-rotate(0) contrast(100%)",

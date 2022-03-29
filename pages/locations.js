@@ -26,7 +26,7 @@ export default function Locations({ data }) {
     ...info,
     current: defaultEndpoint,
   });
-
+  const [ButtonState, setButtonState] = useState(false);
   const { current } = page;
 
   useEffect(() => {
@@ -53,6 +53,10 @@ export default function Locations({ data }) {
   }, [current]);
 
   function handleLoadMore() {
+    if (!page?.next) {
+      setButtonState(true);
+      return;
+    }
     updatePage((prev) => {
       return {
         ...prev,
@@ -122,7 +126,12 @@ export default function Locations({ data }) {
           })}
         </ul>
         <div className="button">
-          <button onClick={handleLoadMore}>Load More</button>
+          <button
+            className={ButtonState ? "disabled" : null}
+            onClick={handleLoadMore}
+          >
+            Load More
+          </button>
         </div>
       </main>
     </div>

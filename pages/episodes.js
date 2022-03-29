@@ -27,6 +27,8 @@ export default function Episodes({ data }) {
     current: defaultEndpoint,
   });
 
+  const [ButtonState, setButtonState] = useState(false);
+
   const { current } = page;
 
   useEffect(() => {
@@ -53,6 +55,10 @@ export default function Episodes({ data }) {
   }, [current]);
 
   function handleLoadMore() {
+    if (!page?.next) {
+      setButtonState(true);
+      return;
+    }
     updatePage((prev) => {
       return {
         ...prev,
@@ -122,7 +128,7 @@ export default function Episodes({ data }) {
           })}
         </ul>
         <div className="button">
-          <button onClick={handleLoadMore}>Load More</button>
+          <button className={ButtonState ? 'disabled': null} onClick={handleLoadMore}>Load More</button>
         </div>
       </main>
     </div>
